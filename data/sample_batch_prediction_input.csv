@@ -1,0 +1,5 @@
+Month,Region,District,NDVI,NDVI_lag1,NDVI_lag2,Soil_Moisture,Soil_Moisture_lag1,Soil_Moisture_lag2,Temperature,Temperature_lag1,Temperature_lag2,Rainfall,Rainfall_lag1,Rainfall_lag2
+6,Lower Juba,Kismayo,0.48,0.45,0.43,0.19,0.18,0.17,28.1,28.4,28.7,85,70,65
+2,Bakool,Xudur,0.13,0.14,0.15,0.03,0.03,0.04,32.8,33.1,32.6,0,0,2
+9,Gedo,Bardheere,0.3,0.28,0.26,0.09,0.08,0.07,31.5,31.8,32.2,12,8,5
+11,Lower Shabelle,Marka,0.58,0.55,0.53,0.24,0.23,0.22,27.4,27.7,28.0,110,95,80

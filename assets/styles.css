@@ -1,0 +1,426 @@
+/* -----------------------------
+   Global App Styling
+----------------------------- */
+
+.stApp {
+    background: linear-gradient(135deg, #0B1220 0%, #111827 45%, #0F172A 100%);
+    color: #F8FAFC;
+}
+
+/* Main content spacing */
+.block-container {
+    padding-top: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    max-width: 1200px;
+}
+
+/* -----------------------------
+   Sidebar Styling
+----------------------------- */
+
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #052E16 0%, #064E3B 45%, #111827 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] span {
+    color: #F8FAFC !important;
+}
+
+/* Sidebar radio buttons */
+[data-testid="stSidebar"] [role="radiogroup"] label {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 10px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label:hover {
+    background: rgba(34, 197, 94, 0.20);
+    transform: translateX(3px);
+}
+
+/* -----------------------------
+   Hero Header
+----------------------------- */
+
+.hero-section {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.22), rgba(59, 130, 246, 0.14));
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 24px;
+    padding: 34px 36px;
+    margin-bottom: 28px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(34, 197, 94, 0.18);
+    color: #86EFAC;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    border: 1px solid rgba(134, 239, 172, 0.25);
+}
+
+.main-title {
+    font-size: 44px;
+    line-height: 1.1;
+    font-weight: 900;
+    color: #F8FAFC;
+    margin-bottom: 12px;
+    letter-spacing: -0.7px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #CBD5E1;
+    max-width: 900px;
+    line-height: 1.7;
+}
+
+/* -----------------------------
+   Cards
+----------------------------- */
+
+.info-card {
+    background: rgba(255, 255, 255, 0.96);
+    color: #111827 !important;
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    margin-bottom: 22px;
+    line-height: 1.7;
+}
+
+.info-card b {
+    color: #047857 !important;
+}
+
+/* Metric card */
+.metric-card {
+    background: linear-gradient(135deg, #ECFDF5, #FFFFFF);
+    color: #111827 !important;
+    padding: 24px;
+    border-radius: 20px;
+    border-left: 7px solid #22C55E;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+    text-align: center;
+    min-height: 135px;
+}
+
+.metric-card h3 {
+    color: #064E3B !important;
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.metric-card p {
+    color: #374151 !important;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* -----------------------------
+   Prediction Boxes
+----------------------------- */
+
+.normal-box {
+    background: #DCFCE7;
+    color: #14532D;
+    padding: 24px;
+    border-radius: 18px;
+    border-left: 7px solid #16A34A;
+    margin-top: 15px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.warning-box {
+    background: #FEF3C7;
+    color: #78350F;
+    padding: 24px;
+    border-radius: 18px;
+    border-left: 7px solid #F59E0B;
+    margin-top: 15px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.severe-box {
+    background: #FEE2E2;
+    color: #7F1D1D;
+    padding: 24px;
+    border-radius: 18px;
+    border-left: 7px solid #DC2626;
+    margin-top: 15px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+/* -----------------------------
+   Headings
+----------------------------- */
+
+h1, h2, h3 {
+    color: #F8FAFC !important;
+    font-weight: 800 !important;
+}
+
+h4 {
+    font-weight: 800 !important;
+}
+
+/* -----------------------------
+   Buttons
+----------------------------- */
+
+.stButton > button {
+    background: linear-gradient(135deg, #16A34A, #059669);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.65rem 1.2rem;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.25);
+}
+
+.stButton > button:hover {
+    background: linear-gradient(135deg, #22C55E, #10B981);
+    transform: translateY(-1px);
+}
+
+/* Download button */
+.stDownloadButton > button {
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+/* -----------------------------
+   Tables and Dataframes
+----------------------------- */
+
+[data-testid="stDataFrame"] {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* -----------------------------
+   Small Text
+----------------------------- */
+
+.small-note {
+    font-size: 14px;
+    color: #CBD5E1;
+}
+
+/* -----------------------------
+   Improve Form Container
+----------------------------- */
+
+[data-testid="stForm"] {
+    background: rgba(15, 23, 42, 0.95);
+    border: 2px solid rgba(34, 197, 94, 0.35);
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Form heading */
+[data-testid="stForm"] h2,
+[data-testid="stForm"] h3 {
+    color: #F8FAFC !important;
+    font-weight: 900 !important;
+}
+
+/* Input labels */
+[data-testid="stForm"] label {
+    color: #F8FAFC !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+}
+
+/* Input boxes */
+[data-testid="stTextInput"] input,
+[data-testid="stNumberInput"] input,
+[data-testid="stSelectbox"] div {
+    background-color: #1E293B !important;
+    color: #F8FAFC !important;
+    border-radius: 10px !important;
+}
+
+/* Make form border more visible on dark theme */
+div[data-testid="stForm"] {
+    outline: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+
+/* -----------------------------
+   Fix Prediction Result Text
+----------------------------- */
+
+.normal-box h3,
+.normal-box p,
+.normal-box b {
+    color: #14532D !important;
+}
+
+.warning-box h3,
+.warning-box p,
+.warning-box b {
+    color: #78350F !important;
+}
+
+.severe-box h3,
+.severe-box p,
+.severe-box b {
+    color: #7F1D1D !important;
+}
+
+/* Make prediction boxes stronger */
+.normal-box,
+.warning-box,
+.severe-box {
+    border-radius: 20px !important;
+    padding: 28px !important;
+    font-size: 16px !important;
+}
+
+.normal-box h3,
+.warning-box h3,
+.severe-box h3 {
+    font-size: 28px !important;
+    font-weight: 900 !important;
+    margin-bottom: 14px !important;
+}
+
+/* Prediction confidence text */
+[data-testid="stMetricValue"] {
+    color: #F8FAFC !important;
+    font-weight: 900 !important;
+}
+
+/* Make horizontal lines softer */
+hr {
+    border-color: rgba(148, 163, 184, 0.25) !important;
+}
+
+/* -----------------------------
+   Professional Predict Button
+----------------------------- */
+
+div[data-testid="stFormSubmitButton"] button {
+    background: linear-gradient(135deg, #16A34A, #059669) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 999px !important;
+    padding: 0.75rem 1.2rem !important;
+    font-weight: 900 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.2px !important;
+    box-shadow: 0 10px 24px rgba(22, 163, 74, 0.35) !important;
+    transition: all 0.25s ease-in-out !important;
+}
+
+div[data-testid="stFormSubmitButton"] button:hover {
+    background: linear-gradient(135deg, #22C55E, #10B981) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 14px 30px rgba(34, 197, 94, 0.45) !important;
+}
+
+div[data-testid="stFormSubmitButton"] button:active {
+    transform: translateY(0px) !important;
+    box-shadow: 0 8px 18px rgba(22, 163, 74, 0.30) !important;
+}
+/* -----------------------------
+   Model Performance Cards
+----------------------------- */
+
+.model-summary-card {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.18), rgba(16, 185, 129, 0.08));
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    border-radius: 22px;
+    padding: 24px 28px;
+    margin: 22px 0;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.28);
+}
+
+.model-summary-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: #F8FAFC;
+    margin-bottom: 8px;
+}
+
+.model-summary-subtitle {
+    font-size: 15px;
+    color: #BBF7D0;
+    line-height: 1.6;
+}
+
+.final-badge {
+    display: inline-block;
+    background: #22C55E;
+    color: #052E16;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.compare-badge {
+    display: inline-block;
+    background: #F59E0B;
+    color: #451A03;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.performance-card {
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 20px;
+    padding: 22px;
+    min-height: 135px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.performance-card-title {
+    font-size: 14px;
+    color: #CBD5E1;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.performance-card-value {
+    font-size: 34px;
+    color: #F8FAFC;
+    font-weight: 950;
+    letter-spacing: -0.5px;
+}
+
+.performance-card-note {
+    font-size: 13px;
+    color: #94A3B8;
+    margin-top: 8px;
+}
+
+.section-label {
+    font-size: 18px;
+    font-weight: 900;
+    color: #F8FAFC;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
