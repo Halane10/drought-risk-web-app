@@ -18,6 +18,11 @@ from backend.predictor import (
 # -----------------------------
 # Page Configuration
 # -----------------------------
+st.markdown("""
+<style>
+   
+</style>
+""", unsafe_allow_html=True)
 st.set_page_config(
     page_title="Drought Risk Prediction System",
     page_icon="🌾",
@@ -37,31 +42,32 @@ def load_css(dark_mode=True):
             st.markdown(f"<style>{file.read()}</style>", unsafe_allow_html=True)
 
     # Hide Streamlit default top menu / deploy area
-    st.markdown(
-        """
-        <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        header {visibility: hidden;}
+st.markdown(
+    """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
 
-        [data-testid="stToolbar"] {
-            display: none !important;
-        }
+    /* Do not hide header because it contains sidebar open/close control */
+    header {visibility: visible;}
 
-        [data-testid="stDecoration"] {
-            display: none !important;
-        }
+    [data-testid="stDecoration"] {
+        display: none !important;
+    }
 
-        [data-testid="stStatusWidget"] {
-            display: none !important;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    [data-testid="stStatusWidget"] {
+        display: none !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+if "dark_mode" not in st.session_state:
+    st.session_state.dark_mode = True
 
+dark_mode = st.session_state.dark_mode
     # Light mode override
-    if not dark_mode:
+if not dark_mode:
         st.markdown(
             """
             <style>
@@ -1318,9 +1324,6 @@ def main():
 
     elif page == "Model Information":
         render_model_info_page()
-
-    
-
 
 if __name__ == "__main__":
     main()
