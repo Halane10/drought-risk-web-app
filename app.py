@@ -32,313 +32,256 @@ st.set_page_config(
 
 
 # -----------------------------
-# Load CSS
+# Load CSS - Dark Mode Only
 # -----------------------------
-def load_css(dark_mode=True):
+def load_css():
     css_path = ASSETS_DIR / "styles.css"
 
+    # Load your existing professional design file if it exists
     if css_path.exists():
         with open(css_path, "r", encoding="utf-8") as file:
             st.markdown(f"<style>{file.read()}</style>", unsafe_allow_html=True)
 
-    # Hide Streamlit default top menu / deploy area
-st.markdown(
-    """
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
+    # Extra required CSS: dark mode only, no Light/Dark toggle
+    st.markdown(
+        """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
 
-    /* Do not hide header because it contains sidebar open/close control */
-    header {visibility: visible;}
+        /* Keep header visible so sidebar hide/unhide button works */
+        header {visibility: visible;}
 
-    [data-testid="stDecoration"] {
-        display: none !important;
-    }
+        [data-testid="stDecoration"] {
+            display: none !important;
+        }
 
-    [data-testid="stStatusWidget"] {
-        display: none !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = True
+        [data-testid="stStatusWidget"] {
+            display: none !important;
+        }
 
-dark_mode = st.session_state.dark_mode
-    # Light mode override
-if not dark_mode:
-        st.markdown(
-            """
-            <style>
-            /* -----------------------------
-               Professional Light Mode
-            ----------------------------- */
+        .stApp {
+            background-color: #0B1220 !important;
+            color: #F8FAFC !important;
+        }
 
-            .stApp {
-                background: #F8FAFC !important;
-                color: #0F172A !important;
-            }
+        section[data-testid="stSidebar"] {
+            background: linear-gradient(180deg, #064E3B 0%, #0B1220 100%) !important;
+            border-right: 1px solid #1E293B !important;
+        }
 
-            .block-container {
-                max-width: 1180px !important;
-                padding-top: 2rem !important;
-                padding-left: 3rem !important;
-                padding-right: 3rem !important;
-                color: #0F172A !important;
-            }
+        section[data-testid="stSidebar"] * {
+            color: #F8FAFC !important;
+            opacity: 1 !important;
+        }
 
-            /* Sidebar */
-            [data-testid="stSidebar"] {
-                background: #FFFFFF !important;
-                border-right: 1px solid #E2E8F0 !important;
-                box-shadow: 6px 0 24px rgba(15, 23, 42, 0.06) !important;
-            }
+        .block-container {
+            max-width: 1180px !important;
+            padding-top: 2.5rem !important;
+            padding-left: 3rem !important;
+            padding-right: 3rem !important;
+        }
 
-            [data-testid="stSidebar"] h1,
-            [data-testid="stSidebar"] h2,
-            [data-testid="stSidebar"] h3,
-            [data-testid="stSidebar"] p,
-            [data-testid="stSidebar"] label,
-            [data-testid="stSidebar"] span {
-                color: #0F172A !important;
-            }
+        .hero-section {
+            background: linear-gradient(135deg, #064E3B 0%, #172554 100%) !important;
+            border: 1px solid #10B981 !important;
+            border-radius: 22px !important;
+            padding: 34px 36px !important;
+            margin-bottom: 28px !important;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25) !important;
+        }
 
-            [data-testid="stSidebar"] p {
-                color: #475569 !important;
-            }
+        .hero-badge {
+            display: inline-block !important;
+            background: #065F46 !important;
+            color: #86EFAC !important;
+            border: 1px solid #22C55E !important;
+            border-radius: 20px !important;
+            padding: 8px 16px !important;
+            font-size: 13px !important;
+            font-weight: 800 !important;
+            margin-bottom: 18px !important;
+        }
 
-            /* Sidebar nav items */
-            [data-testid="stSidebar"] [role="radiogroup"] label {
-                background: #FFFFFF !important;
-                color: #0F172A !important;
-                border: 1px solid #E2E8F0 !important;
-                border-radius: 12px !important;
-                padding: 10px 12px !important;
-                margin-bottom: 10px !important;
-                box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
-            }
+        .main-title {
+            color: #FFFFFF !important;
+            font-size: 38px !important;
+            font-weight: 900 !important;
+            margin-bottom: 12px !important;
+        }
 
-            [data-testid="stSidebar"] [role="radiogroup"] label:hover {
-                background: #ECFDF5 !important;
-                border-color: #22C55E !important;
-                transform: translateX(3px);
-            }
+        .subtitle {
+            color: #E2E8F0 !important;
+            font-size: 17px !important;
+            line-height: 1.7 !important;
+        }
 
-            /* Hero header */
-            .hero-section {
-                background: #FFFFFF !important;
-                border: 1px solid #D1FAE5 !important;
-                border-left: 8px solid #16A34A !important;
-                border-radius: 22px !important;
-                padding: 34px 36px !important;
-                box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10) !important;
-            }
+        .info-card {
+            background: #F8FAFC !important;
+            color: #0F172A !important;
+            padding: 24px 28px !important;
+            border-radius: 16px !important;
+            margin-bottom: 24px !important;
+            border: 1px solid #E2E8F0 !important;
+        }
 
-            .hero-badge {
-                background: #DCFCE7 !important;
-                color: #047857 !important;
-                border: 1px solid #BBF7D0 !important;
-                font-weight: 900 !important;
-            }
+        .info-card b {
+            color: #047857 !important;
+        }
 
-            .main-title {
-                color: #064E3B !important;
-                font-weight: 950 !important;
-            }
+        .metric-card {
+            background: #F0FDF4 !important;
+            border-left: 6px solid #22C55E !important;
+            border-radius: 16px !important;
+            padding: 25px !important;
+            text-align: center !important;
+            margin-bottom: 14px !important;
+        }
 
-            .subtitle {
-                color: #334155 !important;
-            }
+        .metric-card h3 {
+            color: #064E3B !important;
+            font-size: 28px !important;
+            font-weight: 900 !important;
+        }
 
-            /* Headings */
-            h1, h2, h3, h4, h5, h6 {
-                color: #0F172A !important;
-                font-weight: 900 !important;
-            }
+        .metric-card p {
+            color: #0F172A !important;
+            font-size: 14px !important;
+        }
 
-            p, label, span {
-                color: #0F172A !important;
-            }
+        h1, h2, h3, h4, h5, h6, p, label {
+            color: #F8FAFC !important;
+        }
 
-            /* Information cards */
-            .info-card {
-                background: #FFFFFF !important;
-                color: #0F172A !important;
-                border: 1px solid #E2E8F0 !important;
-                border-radius: 18px !important;
-                box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08) !important;
-            }
+        [data-testid="stForm"] {
+            background: #0F172A !important;
+            border: 2px solid #065F46 !important;
+            border-radius: 22px !important;
+            padding: 20px !important;
+        }
 
-            .info-card b {
-                color: #047857 !important;
-            }
+        div[data-baseweb="select"] > div,
+        [data-testid="stTextInput"] input,
+        [data-testid="stNumberInput"] input,
+        textarea {
+            background-color: #1F2937 !important;
+            color: #F8FAFC !important;
+            border: 1px solid #334155 !important;
+        }
 
-            /* Home metric cards */
-            .metric-card {
-                background: #FFFFFF !important;
-                color: #0F172A !important;
-                border: 1px solid #E2E8F0 !important;
-                border-left: 7px solid #16A34A !important;
-                box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08) !important;
-            }
+        .stButton > button,
+        div[data-testid="stFormSubmitButton"] button {
+            background: linear-gradient(135deg, #16A34A, #059669) !important;
+            color: #FFFFFF !important;
+            border: none !important;
+            border-radius: 12px !important;
+        }
 
-            .metric-card h3 {
-                color: #064E3B !important;
-            }
+        .normal-box, .warning-box, .severe-box {
+            padding: 24px !important;
+            border-radius: 16px !important;
+            margin-top: 14px !important;
+        }
 
-            .metric-card p {
-                color: #475569 !important;
-            }
+        .normal-box {
+            background: #DCFCE7 !important;
+            border-left: 6px solid #22C55E !important;
+            color: #14532D !important;
+        }
 
-            /* Form design */
-            [data-testid="stForm"] {
-                background: #FFFFFF !important;
-                border: 2px solid #BBF7D0 !important;
-                border-radius: 22px !important;
-                box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08) !important;
-            }
+        .warning-box {
+            background: #FEF3C7 !important;
+            border-left: 6px solid #F59E0B !important;
+            color: #78350F !important;
+        }
 
-            [data-testid="stForm"] h2,
-            [data-testid="stForm"] h3,
-            [data-testid="stForm"] label {
-                color: #0F172A !important;
-            }
+        .severe-box {
+            background: #FEE2E2 !important;
+            border-left: 6px solid #EF4444 !important;
+            color: #7F1D1D !important;
+        }
 
-            /* Inputs */
-            [data-testid="stTextInput"] input,
-            [data-testid="stNumberInput"] input {
-                background-color: #F8FAFC !important;
-                color: #0F172A !important;
-                border: 1px solid #CBD5E1 !important;
-                border-radius: 10px !important;
-            }
+        .normal-box h3, .normal-box p, .normal-box b,
+        .warning-box h3, .warning-box p, .warning-box b,
+        .severe-box h3, .severe-box p, .severe-box b {
+            color: inherit !important;
+        }
 
-            [data-testid="stSelectbox"] div {
-                background-color: #F8FAFC !important;
-                color: #0F172A !important;
-                border-color: #CBD5E1 !important;
-            }
+        .model-summary-card {
+            background: linear-gradient(135deg, #064E3B, #0F172A) !important;
+            border: 1px solid #10B981 !important;
+            border-radius: 18px !important;
+            padding: 26px !important;
+            margin: 24px 0 !important;
+        }
 
-            /* Buttons */
-            .stButton > button,
-            div[data-testid="stFormSubmitButton"] button {
-                background: linear-gradient(135deg, #16A34A, #059669) !important;
-                color: #FFFFFF !important;
-                border: none !important;
-                box-shadow: 0 10px 24px rgba(22, 163, 74, 0.22) !important;
-            }
+        .model-summary-title {
+            color: #FFFFFF !important;
+            font-size: 24px !important;
+            font-weight: 900 !important;
+            margin-top: 12px !important;
+        }
 
-            .stButton > button:hover,
-            div[data-testid="stFormSubmitButton"] button:hover {
-                background: linear-gradient(135deg, #22C55E, #10B981) !important;
-                color: #FFFFFF !important;
-            }
+        .model-summary-subtitle {
+            color: #BBF7D0 !important;
+            font-size: 15px !important;
+            margin-top: 8px !important;
+        }
 
-            /* Streamlit metrics */
-            [data-testid="stMetric"] {
-                background: #FFFFFF !important;
-                border: 1px solid #E2E8F0 !important;
-                border-radius: 18px !important;
-                padding: 18px !important;
-                box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08) !important;
-            }
+        .final-badge, .compare-badge {
+            display: inline-block !important;
+            border-radius: 999px !important;
+            padding: 8px 14px !important;
+            font-size: 12px !important;
+            font-weight: 900 !important;
+            color: #0F172A !important;
+        }
 
-            [data-testid="stMetricLabel"] {
-                color: #475569 !important;
-                font-weight: 800 !important;
-            }
+        .final-badge {
+            background: #22C55E !important;
+        }
 
-            [data-testid="stMetricValue"] {
-                color: #064E3B !important;
-                font-weight: 950 !important;
-            }
+        .compare-badge {
+            background: #F59E0B !important;
+        }
 
-            /* Model information cards */
-            .model-summary-card {
-                background: #FFFFFF !important;
-                border: 1px solid #D1FAE5 !important;
-                border-left: 8px solid #16A34A !important;
-                box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08) !important;
-            }
+        .section-label {
+            color: #F8FAFC !important;
+            font-size: 20px !important;
+            font-weight: 900 !important;
+            margin: 28px 0 14px 0 !important;
+        }
 
-            .model-summary-title {
-                color: #064E3B !important;
-            }
+        .performance-card {
+            background: #111827 !important;
+            border: 1px solid #334155 !important;
+            border-radius: 16px !important;
+            padding: 22px !important;
+            min-height: 130px !important;
+        }
 
-            .model-summary-subtitle {
-                color: #334155 !important;
-            }
+        .performance-card-title {
+            color: #CBD5E1 !important;
+            font-size: 14px !important;
+            font-weight: 800 !important;
+        }
 
-            .performance-card {
-                background: #FFFFFF !important;
-                color: #0F172A !important;
-                border: 1px solid #E2E8F0 !important;
-                box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08) !important;
-            }
+        .performance-card-value {
+            color: #FFFFFF !important;
+            font-size: 30px !important;
+            font-weight: 900 !important;
+            margin-top: 14px !important;
+        }
 
-            .performance-card-title {
-                color: #475569 !important;
-            }
-
-            .performance-card-value {
-                color: #064E3B !important;
-            }
-
-            .performance-card-note {
-                color: #64748B !important;
-            }
-
-            .section-label {
-                color: #0F172A !important;
-            }
-
-            /* Prediction result boxes stay readable */
-            .normal-box h3,
-            .normal-box p,
-            .normal-box b {
-                color: #14532D !important;
-            }
-
-            .warning-box h3,
-            .warning-box p,
-            .warning-box b {
-                color: #78350F !important;
-            }
-
-            .severe-box h3,
-            .severe-box p,
-            .severe-box b {
-                color: #7F1D1D !important;
-            }
-
-            /* Tables */
-            [data-testid="stDataFrame"] {
-                background: #FFFFFF !important;
-                border-radius: 16px !important;
-                box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06) !important;
-            }
-
-            /* Alerts */
-            .stAlert {
-                border-radius: 14px !important;
-                color: #0F172A !important;
-            }
-
-            /* Lines */
-            hr {
-                border-color: #E2E8F0 !important;
-            }
-
-            /* Toggle area on top-right */
-            [data-testid="stToggle"] label {
-                color: #064E3B !important;
-                font-weight: 800 !important;
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
+        .performance-card-note {
+            color: #94A3B8 !important;
+            font-size: 13px !important;
+            margin-top: 8px !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 # -----------------------------
 # Load Dataset
@@ -1264,38 +1207,22 @@ def render_model_info_page():
 # Main App
 # -----------------------------
 def main():
-    if "dark_mode" not in st.session_state:
-        st.session_state.dark_mode = True
+    # Dark theme only: no light/dark toggle
+    load_css()
 
-    top_left, top_right = st.columns([6, 1])
-
-    with top_right:
-        mode_label = "🌙 Dark Mode" if st.session_state.dark_mode else "☀️ Light Mode"
-
-        dark_mode = st.toggle(
-            mode_label,
-            value=st.session_state.dark_mode
-        )
-
-    st.session_state.dark_mode = dark_mode
-
-    load_css(dark_mode=dark_mode)
-    df = load_dataset()
-
-    load_css(dark_mode=dark_mode)
     df = load_dataset()
 
     st.sidebar.markdown(
-    """
-    <div style="padding: 10px 0 20px 0;">
-        <h2 style="color: #F8FAFC; margin-bottom: 0;">🌾 Drought System</h2>
-        <p style="color: #BBF7D0; font-size: 14px; margin-top: 6px;">
-            ML-based drought risk prediction
-        </p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+        """
+        <div style="padding: 10px 0 20px 0;">
+            <h2 style="color: #F8FAFC; margin-bottom: 0;">🌾 Drought System</h2>
+            <p style="color: #BBF7D0; font-size: 14px; margin-top: 6px;">
+                ML-based drought risk prediction
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     page = st.sidebar.radio(
         "Navigation Menu",
@@ -1305,7 +1232,6 @@ def main():
             "Batch Prediction",
             "Data Dashboard",
             "Model Information",
-           
         ]
     )
 
@@ -1313,8 +1239,7 @@ def main():
         render_home(df)
 
     elif page == "Predict Drought Risk":
-       render_predict_page(df)
-
+        render_predict_page(df)
 
     elif page == "Batch Prediction":
         render_batch_page(df)
@@ -1324,6 +1249,7 @@ def main():
 
     elif page == "Model Information":
         render_model_info_page()
+
 
 if __name__ == "__main__":
     main()
