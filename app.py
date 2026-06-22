@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from backend.auth_ui import require_authentication, render_top_user_logout, render_auth_menu_page
 
 from backend.config import DATASET_PATH, ASSETS_DIR, CLASS_COLORS
 from backend.model_loader import (
@@ -1207,8 +1208,14 @@ def render_model_info_page():
 # Main App
 # -----------------------------
 def main():
-    # Dark theme only: no light/dark toggle
     load_css()
+
+    user = require_authentication()
+    render_top_user_logout()
+   
+
+    if render_auth_menu_page():
+       return
 
     df = load_dataset()
 

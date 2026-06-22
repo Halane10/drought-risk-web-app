@@ -1,7 +1,7 @@
 /* -----------------------------
    Global App Styling
 ----------------------------- */
-
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
 .stApp {
     background: linear-gradient(135deg, #0B1220 0%, #111827 45%, #0F172A 100%);
     color: #F8FAFC;
@@ -423,4 +423,791 @@ div[data-testid="stFormSubmitButton"] button:active {
     color: #F8FAFC;
     margin-top: 20px;
     margin-bottom: 12px;
+}
+
+/* =========================================================
+   AUTHENTICATION UI FIX
+   ========================================================= */
+
+.auth-page-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+
+.auth-badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(34, 197, 94, 0.15);
+    color: #86efac;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    border: 1px solid rgba(34, 197, 94, 0.28);
+}
+
+.auth-title {
+    font-size: 34px;
+    font-weight: 900;
+    color: #f8fafc;
+    line-height: 1.15;
+    margin-bottom: 8px;
+}
+
+.auth-subtitle {
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Fix input border, height, and text position */
+div[data-testid="stTextInput"] div[data-baseweb="input"] {
+    min-height: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(34, 197, 94, 0.55) !important;
+    background-color: rgba(30, 41, 59, 0.92) !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: hidden !important;
+}
+
+div[data-testid="stTextInput"] input {
+    height: 48px !important;
+    min-height: 48px !important;
+    line-height: 48px !important;
+    padding: 0 46px 0 12px !important;
+    color: #f8fafc !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    background: transparent !important;
+}
+
+div[data-testid="stTextInput"] input::placeholder {
+    color: #94a3b8 !important;
+    opacity: 1 !important;
+}
+
+/* Hide Streamlit text: Press Enter to submit form */
+div[data-testid="InputInstructions"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+/* Keep password eye icon centered */
+div[data-testid="stTextInput"] button {
+    height: 40px !important;
+    min-width: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* =========================================================
+   FIX PASSWORD FIELD DOUBLE BORDER
+   ========================================================= */
+
+/* Main input wrapper */
+div[data-testid="stTextInput"] div[data-baseweb="input"] {
+    height: 50px !important;
+    min-height: 50px !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(34, 197, 94, 0.65) !important;
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+
+/* Remove inner border from input area */
+div[data-testid="stTextInput"] div[data-baseweb="input"] > div {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* Text input itself */
+div[data-testid="stTextInput"] input {
+    height: 50px !important;
+    min-height: 50px !important;
+    line-height: 50px !important;
+    padding: 0 14px !important;
+    color: #f8fafc !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Placeholder */
+div[data-testid="stTextInput"] input::placeholder {
+    color: #cbd5e1 !important;
+    opacity: 1 !important;
+}
+
+/* Password eye icon area */
+div[data-testid="stTextInput"] button {
+    height: 50px !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    border-radius: 0 !important;
+    border: none !important;
+    border-left: 1px solid rgba(148, 163, 184, 0.25) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Center eye icon */
+div[data-testid="stTextInput"] button svg {
+    color: #f8fafc !important;
+}
+
+/* Remove Streamlit helper text */
+div[data-testid="InputInstructions"] {
+    display: none !important;
+}
+
+/* =========================================================
+   TOP-RIGHT PROFILE DROPDOWN
+   ========================================================= */
+
+.profile-dropdown-card {
+    background: rgba(15, 23, 42, 0.98);
+    border-radius: 18px;
+    padding: 8px 4px;
+    color: #f8fafc;
+}
+
+.profile-user-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 4px 12px 4px;
+}
+
+.profile-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #16a34a, #0f766e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 900;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.profile-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #f8fafc;
+}
+
+.profile-email {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.profile-divider {
+    height: 1px;
+    background: rgba(148, 163, 184, 0.28);
+    margin: 8px 0;
+}
+
+.profile-menu-item {
+    padding: 10px 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 650;
+    color: #dbeafe;
+}
+
+.profile-menu-item:hover {
+    background: rgba(34, 197, 94, 0.12);
+}
+
+/* Style the top-right profile button */
+div[data-testid="stPopover"] button {
+    border-radius: 999px !important;
+    background: rgba(15, 23, 42, 0.92) !important;
+    border: 1px solid rgba(34, 197, 94, 0.45) !important;
+    color: #f8fafc !important;
+    font-weight: 800 !important;
+}
+
+/* =========================================================
+   TOP RIGHT PROFILE CARD - 
+   ========================================================= */
+
+.top-profile-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(15, 23, 42, 0.96);
+    border-radius: 14px;
+    padding: 10px 12px;
+    border: 1px solid rgba(30, 41, 59, 0.9);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    margin-bottom: 8px;
+}
+
+.top-profile-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #16a34a, #059669);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 900;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    flex-shrink: 0;
+}
+
+.top-profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.top-profile-name {
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 850;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.top-profile-email {
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Make logout button smaller and cleaner under profile */
+button[kind="secondary"] {
+    border-radius: 10px !important;
+}
+
+/* =========================================================
+   PROFESSIONAL PROFILE DROPDOWN MENU
+   ========================================================= */
+
+div[data-testid="stPopover"] button {
+    border-radius: 14px !important;
+    background: rgba(15, 23, 42, 0.96) !important;
+    border: 1px solid rgba(34, 197, 94, 0.45) !important;
+    color: #f8fafc !important;
+    font-weight: 800 !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28) !important;
+}
+
+.profile-menu-card {
+    background: rgba(15, 23, 42, 0.98);
+    color: #f8fafc;
+    border-radius: 18px;
+    padding: 8px 4px;
+    min-width: 250px;
+}
+
+.profile-menu-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 8px;
+}
+
+.profile-menu-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #16a34a, #059669);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 900;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.profile-menu-name {
+    font-size: 15px;
+    font-weight: 850;
+    color: #f8fafc;
+}
+
+.profile-menu-email {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 3px;
+}
+
+.profile-menu-divider {
+    height: 1px;
+    background: rgba(148, 163, 184, 0.25);
+    margin: 8px 0;
+}
+
+.profile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 10px;
+    border-radius: 12px;
+    color: #dbeafe;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.profile-menu-item i {
+    width: 18px;
+    color: #86efac;
+    font-size: 15px;
+}
+
+.profile-menu-item:hover {
+    background: rgba(34, 197, 94, 0.12);
+}
+
+.profile-session-note {
+    color: #94a3b8;
+    font-size: 12px;
+    padding: 8px 10px;
+    line-height: 1.5;
+}
+/* =========================================================
+   TOP PROFILE BUTTON LIKE PROFILE CARD
+   ========================================================= */
+
+div[data-testid="stPopover"] > button {
+    min-height: 58px !important;
+    height: 58px !important;
+    border-radius: 14px !important;
+    background: rgba(15, 23, 42, 0.98) !important;
+    border: 1px solid rgba(30, 41, 59, 0.95) !important;
+    color: #f8fafc !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35) !important;
+    padding: 8px 12px !important;
+    justify-content: flex-start !important;
+}
+
+/* Popover text */
+div[data-testid="stPopover"] > button p {
+    font-size: 14px !important;
+    font-weight: 850 !important;
+    color: #f8fafc !important;
+    line-height: 1.25 !important;
+    white-space: pre-line !important;
+    text-align: left !important;
+}
+
+/* Make email smaller */
+div[data-testid="stPopover"] > button p::first-line {
+    font-size: 14px !important;
+    font-weight: 850 !important;
+}
+
+/* Remove old long green border look */
+div[data-testid="stPopover"] button {
+    width: 100% !important;
+}
+
+/* =========================================================
+   CUSTOM TOP PROFILE DROPDOWN
+   ========================================================= */
+
+.custom-profile-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 999999;
+}
+
+.custom-profile-dropdown {
+    position: relative;
+    width: 100%;
+    max-width: 230px;
+}
+
+.custom-profile-dropdown summary {
+    list-style: none;
+}
+
+.custom-profile-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.custom-profile-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(15, 23, 42, 0.98);
+    border: 1px solid rgba(30, 41, 59, 0.95);
+    border-radius: 14px;
+    padding: 10px 12px;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    transition: all 0.2s ease;
+}
+
+.custom-profile-button:hover {
+    background: rgba(20, 31, 52, 0.98);
+    border-color: rgba(34, 197, 94, 0.45);
+}
+
+.custom-profile-avatar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #16a34a, #059669);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 900;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.custom-profile-avatar.big {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 17px;
+}
+
+.custom-profile-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.custom-profile-name {
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 850;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.custom-profile-email {
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.custom-profile-arrow {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.custom-profile-menu {
+    position: absolute;
+    top: 66px;
+    right: 0;
+    width: 285px;
+    background: rgba(15, 23, 42, 0.99);
+    border: 1px solid rgba(30, 41, 59, 0.95);
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    z-index: 999999;
+}
+
+.custom-profile-menu-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+}
+
+.custom-profile-divider {
+    height: 1px;
+    background: rgba(148, 163, 184, 0.25);
+    margin: 8px 0;
+}
+
+.custom-profile-item,
+.custom-profile-logout {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 10px;
+    border-radius: 12px;
+    color: #dbeafe;
+    font-size: 14px;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.custom-profile-item i,
+.custom-profile-logout i {
+    width: 18px;
+    color: #86efac;
+    font-size: 15px;
+}
+
+.custom-profile-item:hover,
+.custom-profile-logout:hover {
+    background: rgba(34, 197, 94, 0.12);
+}
+
+.custom-profile-logout {
+    color: #f8fafc;
+}
+
+.custom-profile-logout i {
+    color: #fca5a5;
+}
+
+/* =========================================================
+   AUTH PROFILE / SESSION PAGE
+   ========================================================= */
+
+.auth-info-card {
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 20px;
+    padding: 26px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.auth-info-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.auth-info-header h2 {
+    color: #f8fafc;
+    margin: 0;
+    font-size: 26px;
+    font-weight: 900;
+}
+
+.auth-info-header p {
+    color: #94a3b8;
+    margin: 4px 0 0 0;
+    font-size: 14px;
+}
+
+.auth-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(30, 41, 59, 0.72);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+
+.auth-info-row span {
+    color: #94a3b8;
+    font-weight: 700;
+}
+
+.auth-info-row strong {
+    color: #f8fafc;
+    font-weight: 850;
+}
+
+/* =========================================================
+   FIXED TOP-RIGHT PROFILE MENU
+   ========================================================= */
+
+.custom-profile-fixed {
+    position: fixed;
+    top: 58px;
+    right: 34px;
+    width: 230px;
+    z-index: 999999;
+}
+
+.custom-profile-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.custom-profile-dropdown summary {
+    list-style: none;
+}
+
+.custom-profile-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.custom-profile-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(15, 23, 42, 0.98);
+    border: 1px solid rgba(30, 41, 59, 0.95);
+    border-radius: 14px;
+    padding: 10px 12px;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.custom-profile-button:hover {
+    border-color: rgba(34, 197, 94, 0.55);
+}
+
+.custom-profile-avatar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #16a34a, #059669);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.custom-profile-avatar.big {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 17px;
+}
+
+.custom-profile-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.custom-profile-name {
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 850;
+    line-height: 1.2;
+}
+
+.custom-profile-email {
+    color: #94a3b8;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.custom-profile-arrow {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.custom-profile-menu {
+    position: absolute;
+    top: 66px;
+    right: 0;
+    width: 285px;
+    background: rgba(15, 23, 42, 0.99);
+    border: 1px solid rgba(30, 41, 59, 0.95);
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.custom-profile-menu-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+}
+
+.custom-profile-divider {
+    height: 1px;
+    background: rgba(148, 163, 184, 0.25);
+    margin: 8px 0;
+}
+
+.custom-profile-item,
+.custom-profile-logout {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 10px;
+    border-radius: 12px;
+    color: #dbeafe;
+    font-size: 14px;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.custom-profile-item i,
+.custom-profile-logout i {
+    width: 18px;
+    color: #86efac;
+}
+
+.custom-profile-item:hover,
+.custom-profile-logout:hover {
+    background: rgba(34, 197, 94, 0.12);
+}
+
+.custom-profile-logout i {
+    color: #fca5a5;
+}
+/* =========================================================
+   MOVE PROFILE MENU ABOVE MAIN CONTENT
+   ========================================================= */
+
+.custom-profile-fixed {
+    position: fixed !important;
+    top: 14px !important;
+    right: 75px !important;
+    width: 230px !important;
+    z-index: 999999 !important;
+}
+
+.custom-profile-menu {
+    top: 64px !important;
+    right: 0 !important;
+    z-index: 999999 !important;
+}
+/* =========================================================
+   HIDE STREAMLIT DEPLOY BUTTON
+   ========================================================= */
+
+[data-testid="stDeployButton"] {
+    display: none !important;
+}
+
+.stDeployButton {
+    display: none !important;
+}
+
+/* Hide deploy text/button from Streamlit toolbar */
+header button[kind="header"] {
+    display: none !important;
 }

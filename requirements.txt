@@ -7,3 +7,8 @@ imbalanced-learn
 joblib
 plotly
 openpyxl
+sqlalchemy
+psycopg2-binary
+bcrypt
+email-validator
+extra-streamlit-components
