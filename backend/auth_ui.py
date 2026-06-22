@@ -164,7 +164,7 @@ def login_page():
                         }
                         st.session_state.auth_page = "dashboard"
                         st.success(message)
-                        save_cookie_token_and_reload(session_token)
+                        st.rerun()
                     else:
                         st.error(message)
                         
